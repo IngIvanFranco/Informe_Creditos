@@ -1,0 +1,8 @@
+form{
+  width: 90%;
+  max-width: 500px;
+  margin: 50px auto;
+  border: 1px solid #ccc;
+  padding: 50px;
+  border-radius:10px;
+}

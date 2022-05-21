@@ -1,0 +1,22 @@
+
+
+ <form [formGroup]="fomrulariologin" (ngSubmit)="login()" >
+ <div class="mb-3 row">
+   <img src="{{path}}/img/logo_showcase.png" alt="">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Usuario</label>
+    <div class="col-sm-10">
+      <input type="text" formControlName="usr"  class="form-control" id="staticEmail" >
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" formControlName="pass" class="form-control" id="inputPassword">
+    </div>
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="alert">
+  Revisa tus datos
+  </div>
+  <button type="submit" class="btn btn-success">Igresar</button>
+
+</form>

@@ -1,0 +1,90 @@
+
+  <div class="containerr">
+    <div class="menu">
+     <img src="{{path}}/img/logo.png" alt="">
+
+     <form [formGroup]="fomrulariofiltro" (ngSubmit)="traerdatos()"  >
+       <h4>Rango de fechas</h4>
+      <label for="startDate">Inicio</label>
+      <input id="startDate" class="form-control" type="date" formControlName="fi" />
+      <label for="startDate2">Fin</label>
+      <input id="startDate2" class="form-control" type="date" formControlName="ff" />
+      <button [disabled]="!fomrulariofiltro.valid " type="submit" class="btn btn-success">Filtrar</button>
+      <button class="btn btn-danger" (click)="salir()">Salir</button>
+      <button *ngIf="render" mat-raised-button (click)="exporter.exportTable('xlsx')" >Exportar Excel</button>
+     </form>
+
+    </div>
+    <div class="info">
+
+     <img src="{{path}}/img/logo_showcase.png" alt=""  class="logo" *ngIf="!render" >
+
+
+
+   <table  mat-table matTableExporter [dataSource]="creditos" class=" greyGridTable" #exporter="matTableExporter" >
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="Fecha">
+      <th mat-header-cell *matHeaderCellDef> Fecha. </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha_solicitud.slice(0,10)}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Cedula">
+      <th mat-header-cell *matHeaderCellDef> Cedula </th>
+      <td mat-cell *matCellDef="let element"> {{element.cedula | number}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Nombres">
+      <th mat-header-cell *matHeaderCellDef> Nombres </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Apellidos">
+      <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+      <td mat-cell *matCellDef="let element"> {{element.apellidos}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Monto">
+      <th mat-header-cell *matHeaderCellDef> Monto </th>
+      <td mat-cell *matCellDef="let element">$ {{element.monto_solicitado | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Plazo">
+      <th mat-header-cell *matHeaderCellDef> Plazo </th>
+      <td mat-cell *matCellDef="let element"> {{element.plazo_quincenal}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Cuota">
+      <th mat-header-cell *matHeaderCellDef> Cuota </th>
+      <td mat-cell *matCellDef="let element">$ {{element.valor_cuota | number }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Tipo_Credito">
+      <th mat-header-cell *matHeaderCellDef> Tipo Credito </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Ciudad">
+      <th mat-header-cell *matHeaderCellDef> Ciudad </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nm}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+
+
+
+    </div>
+  </div>
+
+

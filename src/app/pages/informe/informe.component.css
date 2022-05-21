@@ -1,0 +1,88 @@
+.containerr {  display: grid;
+  padding: 5px;
+  grid-template-columns: 0.3fr 1.7fr;
+  grid-template-rows:90vh;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 3px 6px;
+  grid-auto-flow: row;
+  overflow: hidden;
+  grid-template-areas:
+    "menu info";
+}
+
+.menu {
+  grid-area: menu;
+border:1px solid #ccc;
+padding: 20px;
+
+
+ }
+
+ .menu img{
+   width: 100%;
+ }
+
+.info {
+  padding: 20px;
+  grid-area: info;
+  border:1px solid #ccc;
+  overflow-y:scroll;
+ }
+
+
+ .logo{
+   width: 60%;
+   margin: auto 20%;
+ }
+
+ form{
+   margin: 50px auto;
+ }
+
+ .btn{
+   margin: 20px 5px
+ }
+
+
+ table.greyGridTable {
+  border: 2px solid #FFFFFF;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.greyGridTable td, table.greyGridTable th {
+  border: 1px solid #FFFFFF;
+  padding: 3px 4px;
+}
+table.greyGridTable tbody td {
+  font-size: 13px;
+}
+table.greyGridTable td:nth-child(even) {
+  background: #EBEBEB;
+}
+table.greyGridTable thead {
+  background: #FFFFFF;
+  border-bottom: 4px solid #333333;
+}
+table.greyGridTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  border-left: 2px solid #333333;
+}
+table.greyGridTable thead th:first-child {
+  border-left: none;
+}
+
+table.greyGridTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  border-top: 4px solid #333333;
+}
+table.greyGridTable tfoot td {
+  font-size: 14px;
+}
